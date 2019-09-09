@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "test-workspace": {
+    "react-app": {
       "tags": []
     },
-    "test-workspace-e2e": {
+    "react-app-e2e": {
       "tags": []
     },
     "test-react": {

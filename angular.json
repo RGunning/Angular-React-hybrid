@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "test-workspace": {
-      "root": "apps/test-workspace/",
-      "sourceRoot": "apps/test-workspace/src",
+    "react-app": {
+      "root": "apps/react-app/",
+      "sourceRoot": "apps/react-app/src",
       "projectType": "application",
       "prefix": "fcom",
       "schematics": {
@@ -17,24 +17,24 @@
         "build": {
           "builder": "@nrwl/builders:web-build",
           "options": {
-            "outputPath": "dist/apps/test-workspace",
-            "index": "apps/test-workspace/src/index.html",
-            "main": "apps/test-workspace/src/main.tsx",
-            "polyfills": "apps/test-workspace/src/polyfills.ts",
-            "tsConfig": "apps/test-workspace/tsconfig.app.json",
+            "outputPath": "dist/apps/react-app",
+            "index": "apps/react-app/src/index.html",
+            "main": "apps/react-app/src/main.tsx",
+            "polyfills": "apps/react-app/src/polyfills.ts",
+            "tsConfig": "apps/react-app/tsconfig.app.json",
             "assets": [
-              "apps/test-workspace/src/favicon.ico",
-              "apps/test-workspace/src/assets"
+              "apps/react-app/src/favicon.ico",
+              "apps/react-app/src/assets"
             ],
-            "styles": ["apps/test-workspace/src/styles.scss"],
+            "styles": ["apps/react-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/test-workspace/src/environments/environment.ts",
-                  "with": "apps/test-workspace/src/environments/environment.prod.ts"
+                  "replace": "apps/react-app/src/environments/environment.ts",
+                  "with": "apps/react-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -57,11 +57,11 @@
         "serve": {
           "builder": "@nrwl/builders:web-dev-server",
           "options": {
-            "buildTarget": "test-workspace:build"
+            "buildTarget": "react-app:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "test-workspace:build:production"
+              "buildTarget": "react-app:build:production"
             }
           }
         },
@@ -69,8 +69,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/test-workspace/tsconfig.app.json",
-              "apps/test-workspace/tsconfig.spec.json"
+              "apps/react-app/tsconfig.app.json",
+              "apps/react-app/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -78,34 +78,34 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "apps/test-workspace/jest.config.js",
-            "tsConfig": "apps/test-workspace/tsconfig.spec.json"
+            "jestConfig": "apps/react-app/jest.config.js",
+            "tsConfig": "apps/react-app/tsconfig.spec.json"
           }
         }
       }
     },
-    "test-workspace-e2e": {
-      "root": "apps/test-workspace-e2e",
+    "react-app-e2e": {
+      "root": "apps/react-app-e2e",
       "projectType": "application",
       "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@nrwl/builders:cypress",
           "options": {
-            "cypressConfig": "apps/test-workspace-e2e/cypress.json",
-            "tsConfig": "apps/test-workspace-e2e/tsconfig.e2e.json",
-            "devServerTarget": "test-workspace:serve"
+            "cypressConfig": "apps/react-app-e2e/cypress.json",
+            "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "react-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "test-workspace:serve:production"
+              "devServerTarget": "react-app:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "apps/test-workspace-e2e/tsconfig.e2e.json",
+            "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
             "exclude": ["**/node_modules/**"]
           }
         }
@@ -283,5 +283,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "test-workspace"
+  "defaultProject": "react-app"
 }
