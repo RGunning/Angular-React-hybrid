@@ -13,6 +13,15 @@
     },
     "test-workspace-e2e": {
       "tags": []
+    },
+    "test-react": {
+      "tags": []
+    },
+    "angular-app": {
+      "tags": []
+    },
+    "angular-app-e2e": {
+      "tags": []
     }
   }
 }
