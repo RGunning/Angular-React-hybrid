@@ -1,4 +1,4 @@
-Angular-React Hybrid project based on ng-packagr example application https://github.com/ng-packagr/ng-packagr/tree/master/integration
+Prrof of Concept Angular-React Hybrid project based on ng-packagr example application https://github.com/ng-packagr/ng-packagr/tree/master/integration
 
 
 # TestWorkspace
