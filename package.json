@@ -53,7 +53,7 @@
     "@nrwl/angular": "^8.4.13",
     "@nrwl/builders": "7.7.2",
     "@nrwl/schematics": "7.7.2",
-    "@types/jest": "24.0.9",
+    "@types/jest": "24.0.18",
     "@types/jquery": "3.3.6",
     "@types/node": "~8.9.4",
     "@types/react": "16.8.4",
