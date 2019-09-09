@@ -1,3 +1,6 @@
+Angular-React Hybrid project based on ng-packagr example application https://github.com/ng-packagr/ng-packagr/tree/master/integration
+
+
 # TestWorkspace
 
 This project was generated using [Nx](https://nx.dev).
