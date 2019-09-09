@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@fcom/test-react": ["dist/libs/test-react"]
+      "@hybrid/test-react": ["dist/libs/test-react"]
     }
   },
   "exclude": ["node_modules", "tmp"]

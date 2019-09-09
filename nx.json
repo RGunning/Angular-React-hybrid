@@ -1,5 +1,5 @@
 {
-  "npmScope": "fcom",
+  "npmScope": "hybrid",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",

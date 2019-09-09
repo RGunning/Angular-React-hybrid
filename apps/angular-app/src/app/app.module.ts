@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {ReactIntegrationModule} from '@fcom/test-react';
+import {ReactIntegrationModule} from '@hybrid/test-react';
 
 @NgModule({
   declarations: [AppComponent],
