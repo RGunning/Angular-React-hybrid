@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "sourceMap": false,
-    "outDir": "../../dist/out-tsc/apps/angular-app-e2e/src"
+    "outDir": "../../dist/out-tsc"
   },
   "include": ["src/**/*.ts"]
 }

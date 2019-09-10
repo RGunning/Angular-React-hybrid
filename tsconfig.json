@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@hybrid/test-react": ["dist/libs/test-react"]
-    }
+    },
+    "rootDir": "."
   },
   "exclude": ["node_modules", "tmp"]
 }
