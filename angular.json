@@ -111,34 +111,71 @@
         }
       }
     },
-    "test-react": {
-      "root": "libs/test-react",
-      "sourceRoot": "libs/test-react/src",
+    "angular-integration-components": {
+      "root": "libs/angular-integration-components",
+      "sourceRoot": "libs/angular-integration-components/src",
       "projectType": "library",
       "prefix": "fcom",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "libs/test-react/tsconfig.lib.json",
-            "project": "libs/test-react/ng-package.json"
+            "tsConfig": "libs/angular-integration-components/tsconfig.lib.json",
+            "project": "libs/angular-integration-components/ng-package.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/test-react/tsconfig.lib.json",
-              "libs/test-react/tsconfig.spec.json"
+              "libs/angular-integration-components/tsconfig.lib.json",
+              "libs/angular-integration-components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/test-react/**"]
+            "exclude": ["**/node_modules/**", "!libs/angular-integration-components/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/test-react/jest.config.js",
-            "tsConfig": "libs/test-react/tsconfig.spec.json"
+            "jestConfig": "libs/angular-integration-components/jest.config.js",
+            "tsConfig": "libs/angular-integration-components/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "react-components": {
+      "root": "libs/react-components",
+      "sourceRoot": "libs/react-components/src",
+      "projectType": "library",
+      "prefix": "fcom",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/react-components/tsconfig.lib.json",
+            "project": "libs/react-components/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/react-components/tsconfig.lib.json",
+              "libs/react-components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/react-components/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/react-components/jest.config.js",
+            "tsConfig": "libs/react-components/tsconfig.spec.json"
           }
         }
       },

@@ -14,7 +14,10 @@
     "react-app-e2e": {
       "tags": []
     },
-    "test-react": {
+    "angular-integration-components": {
+      "tags": []
+    },
+    "react-components": {
       "tags": []
     },
     "angular-app": {

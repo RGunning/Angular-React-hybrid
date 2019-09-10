@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ReactLabel } from './react.component';
+import { ReactLabel } from '@hybrid/react-components';
 
 @Component({
   selector: 'react-integration-test',

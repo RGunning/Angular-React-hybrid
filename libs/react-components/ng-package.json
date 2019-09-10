@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/libs/react-components",
+  "lib": {
+    "entryFile": "src/public_api.ts",
+    "umdModuleIds": {
+      "react": "React",
+      "react-dom": "ReactDOM"
+    },
+    "jsx": "react"
+  }
+
+}

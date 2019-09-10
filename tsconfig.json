@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hybrid/test-react": ["dist/libs/test-react"]
+      "@hybrid/angular-integration-components": ["dist/libs/angular-integration-components"],
+      "@hybrid/react-components": ["dist/libs/react-components"]
     },
     "rootDir": "."
   },

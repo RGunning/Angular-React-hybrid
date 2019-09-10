@@ -1,0 +1,9 @@
+{
+  "name": "@hybrid/angular-integration-components",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.2.5",
+    "@angular/core": "^8.2.5",
+    "@hybrid/react-components": "*"
+  }
+}

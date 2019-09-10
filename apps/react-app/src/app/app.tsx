@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import {ReactLabel} from '@hybrid/test-react';
+import {ReactLabel} from '@hybrid/react-components';
 
 import "./app.scss";
 
