@@ -72,7 +72,7 @@
               "apps/react-app/tsconfig.app.json",
               "apps/react-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/react-app/**"]
           }
         },
         "test": {
@@ -106,7 +106,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/react-app-e2e/**"]
           }
         }
       }
@@ -131,7 +131,7 @@
               "libs/test-react/tsconfig.lib.json",
               "libs/test-react/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!libs/test-react/**"]
           }
         },
         "test": {
@@ -226,7 +226,7 @@
               "apps/angular-app/tsconfig.app.json",
               "apps/angular-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/angular-app/**"]
           }
         },
         "test": {
@@ -261,7 +261,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/angular-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": ["**/node_modules/**", "!apps/angular-app-e2e/**"]
           }
         }
       }
