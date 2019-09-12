@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { App } from "./app/app";
 
-ReactDOM.render(<App />, document.querySelector("hybrid-root"));
+ReactDOM.render(<App />, document.getElementById('root'));
 

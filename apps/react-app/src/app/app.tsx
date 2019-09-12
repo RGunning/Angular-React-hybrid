@@ -1,8 +1,8 @@
 import * as React from "react";
+import {Component}from "react";
 import { ReactTimerComponent, ReactHelloComponent } from '@hybrid/react-wrappers';
 
-import "./app.scss";
-export class App extends React.Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 

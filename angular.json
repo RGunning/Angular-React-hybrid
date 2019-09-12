@@ -29,7 +29,8 @@
             "styles": [
               "apps/react-app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/babel"
           },
           "configurations": {
             "production": {
@@ -422,6 +423,30 @@
     "@nrwl/schematics:application": {
       "style": "scss",
       "framework": "react"
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
     },
     "@nrwl/schematics:library": {
       "style": "scss"
