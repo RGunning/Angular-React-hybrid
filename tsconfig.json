@@ -16,9 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@hybrid/test-react": ["dist/libs/test-react"],
-      "@hybrid/angular-components": ["dist/libs/angular-components"],
       "@hybrid/react-integration": ["dist/libs/react-integration"],
-      "@hybrid/react-ng-wrapper": ["dist/libs/react-ng-wrapper"]
+      "@hybrid/react-ng-wrapper": ["dist/libs/react-ng-wrapper"],
+      "@hybrid/react-material": ["dist/libs/react-material"],
+      "@hybrid/angular-component-library": [
+        "dist/libs/angular-component-library/"
+      ]
     },
     "rootDir": "."
   },

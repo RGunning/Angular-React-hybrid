@@ -319,6 +319,64 @@
           }
         }
       }
+    },
+    "react-material": {
+      "root": "libs/react-material",
+      "sourceRoot": "libs/react-material/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/react-material/tsconfig.lib.json",
+            "project": "libs/react-material/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/react-material/tsconfig.lib.json",
+              "libs/react-material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/react-material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/react-material/jest.config.js",
+            "tsConfig": "libs/react-material/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "angular-component-library": {
+      "projectType": "library",
+      "root": "libs/angular-component-library",
+      "sourceRoot": "libs/angular-component-library/src",
+      "prefix": "hybrid",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/angular-component-library/tsconfig.lib.json",
+            "project": "libs/angular-component-library/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/angular-component-library/tsconfig.lib.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/angular-component-library/**"
+            ]
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

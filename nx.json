@@ -28,6 +28,12 @@
     },
     "react-ng-wrapper": {
       "tags": []
+    },
+    "react-material": {
+      "tags": []
+    },
+    "angular-component-library": {
+      "tags": []
     }
   }
 }
