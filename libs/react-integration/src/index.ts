@@ -1,1 +1,1 @@
-export * from './lib/react-integration';
+export * from './lib/hello-wrapper';

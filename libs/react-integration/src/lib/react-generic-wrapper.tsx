@@ -1,15 +1,10 @@
 import React from 'react';
 
 import {
-  Input,
-  Output,
-  EventEmitter,
-  OnInit,
-  Component,
   ɵrenderComponent as renderComponent,
-  ɵmarkDirty as markDirty,
   ɵdetectChanges as detectChanges,
-  ɵLifecycleHooksFeature as LifecycleHooksFeature
+  ɵLifecycleHooksFeature as LifecycleHooksFeature,
+  ɵComponentType as componentType
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -21,40 +16,21 @@ declare global {
   }
 }
 
-
-@Component({ selector: 'hello-world', template: 'Hello {{name}}!' })
-class HelloWorld implements OnInit {
-  @Input() name = 'world';
-  @Output() stuff = new EventEmitter<string>();
-
-  ngOnInit() {
-    setTimeout(() => {
-      console.log('ngOnInit')
-      this.stuff.next('loaded');
-    }, 1000);
-  }
-}
-//import './react-integration.css';
-
-
-export class ReactIntegration extends React.Component<any, any> {
+export class ReactGenericWrapper<T> extends React.Component<any, any> {
   private childComponent;
   private componentDef;
   private _subscriptions: Subscription[] = [];
 
-  constructor(props) {
+  constructor(props, private componentFactory: componentType<T>) {
     super(props);
-    this.componentDef = (HelloWorld as any).ngComponentDef
-    console.log(this.componentDef)
+    if(!componentFactory.hasOwnProperty('ngComponentDef')){
+      throw new Error('A component with a ngComponentDef is required');
+    }
+    this.componentDef = componentFactory.ngComponentDef;
 
     this.state = {
       component: this.componentDef ? this.componentDef.selectors[0][0] : '',
     };
-  }
-
-  // Before the component mounts, we initialise our state
-  componentWillMount() {
-    //
   }
 
   componentWillUnmount() {
@@ -66,7 +42,7 @@ export class ReactIntegration extends React.Component<any, any> {
   componentDidMount() {
 
     // render component after selector is in DOM
-    this.childComponent = renderComponent(HelloWorld, { hostFeatures: [LifecycleHooksFeature] });
+    this.childComponent = renderComponent(this.componentFactory, { hostFeatures: [LifecycleHooksFeature] });
 
     this._subscriptions.push(
       ...Object.keys(this.componentDef.outputs).map(
@@ -107,3 +83,5 @@ export class ReactIntegration extends React.Component<any, any> {
     )
   }
 }
+
+

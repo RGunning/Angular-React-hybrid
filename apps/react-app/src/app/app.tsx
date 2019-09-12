@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import {ReactIntegration} from '@hybrid/react-integration';
+import { HelloWrapper } from '@hybrid/react-integration';
 
 import "./app.scss";
 export class App extends Component {
@@ -12,13 +12,13 @@ export class App extends Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     setTimeout(() => {
-      this.setState({name: "project-react 2"})
+      this.setState({ name: "project-react 2" })
     }, 1000);
   }
 
-  onStuff(e){
+  onStuff(e) {
     console.log(`stuff happened ${e}`)
   }
 
@@ -26,7 +26,7 @@ export class App extends Component {
     return (
       <div>
         <div style={{ textAlign: "center" }}>
-          <ReactIntegration name={this.state.name} stuff={this.onStuff}></ReactIntegration>
+          <HelloWrapper name={this.state.name} stuff={this.onStuff}></HelloWrapper>
         </div>
       </div>
     );
