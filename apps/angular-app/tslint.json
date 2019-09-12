@@ -1,7 +1,7 @@
 {
   "extends": "../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "fcom", "camelCase"],
-    "component-selector": [true, "element", "fcom", "kebab-case"]
+    "directive-selector": [true, "attribute", "hybrid", "camelCase"],
+    "component-selector": [true, "element", "hybrid", "kebab-case"]
   }
 }

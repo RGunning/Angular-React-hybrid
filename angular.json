@@ -7,7 +7,7 @@
       "root": "apps/react-app/",
       "sourceRoot": "apps/react-app/src",
       "projectType": "application",
-      "prefix": "fcom",
+      "prefix": "hybrid",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"
@@ -115,7 +115,7 @@
       "root": "libs/test-react",
       "sourceRoot": "libs/test-react/src",
       "projectType": "library",
-      "prefix": "fcom",
+      "prefix": "hybrid",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -152,7 +152,7 @@
       "root": "apps/angular-app/",
       "sourceRoot": "apps/angular-app/src",
       "projectType": "application",
-      "prefix": "fcom",
+      "prefix": "hybrid",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"
@@ -320,34 +320,34 @@
         }
       }
     },
-    "react-material": {
-      "root": "libs/react-material",
-      "sourceRoot": "libs/react-material/src",
+    "react-wrappers": {
+      "root": "libs/react-wrappers",
+      "sourceRoot": "libs/react-wrappers/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "libs/react-material/tsconfig.lib.json",
-            "project": "libs/react-material/ng-package.json"
+            "tsConfig": "libs/react-wrappers/tsconfig.lib.json",
+            "project": "libs/react-wrappers/ng-package.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/react-material/tsconfig.lib.json",
-              "libs/react-material/tsconfig.spec.json"
+              "libs/react-wrappers/tsconfig.lib.json",
+              "libs/react-wrappers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/react-material/**"]
+            "exclude": ["**/node_modules/**", "!libs/react-wrappers/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/react-material/jest.config.js",
-            "tsConfig": "libs/react-material/tsconfig.spec.json"
+            "jestConfig": "libs/react-wrappers/jest.config.js",
+            "tsConfig": "libs/react-wrappers/tsconfig.spec.json"
           }
         }
       }

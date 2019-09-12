@@ -2,11 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ReactIntegrationModule } from '@hybrid/test-react';
-import { AngularComponentsModule } from '@hybrid/angular-components'
+import { AngularComponentLibraryModule } from '@hybrid/angular-component-library'
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ReactIntegrationModule, AngularComponentsModule],
+  imports: [BrowserModule, AngularComponentLibraryModule],
   providers: [],
   bootstrap: [AppComponent]
 })
