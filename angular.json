@@ -26,7 +26,9 @@
               "apps/react-app/src/favicon.ico",
               "apps/react-app/src/assets"
             ],
-            "styles": ["apps/react-app/src/styles.scss"],
+            "styles": [
+              "apps/react-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -72,7 +74,10 @@
               "apps/react-app/tsconfig.app.json",
               "apps/react-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/react-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/react-app/**"
+            ]
           }
         },
         "test": {
@@ -106,7 +111,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/react-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**", "!apps/react-app-e2e/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/react-app-e2e/**"
+            ]
           }
         }
       }
@@ -131,7 +139,10 @@
               "libs/test-react/tsconfig.lib.json",
               "libs/test-react/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/test-react/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/test-react/**"
+            ]
           }
         },
         "test": {
@@ -171,7 +182,9 @@
               "apps/angular-app/src/favicon.ico",
               "apps/angular-app/src/assets"
             ],
-            "styles": ["apps/angular-app/src/styles.scss"],
+            "styles": [
+              "apps/angular-app/src/styles.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -226,7 +239,10 @@
               "apps/angular-app/tsconfig.app.json",
               "apps/angular-app/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/angular-app/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-app/**"
+            ]
           }
         },
         "test": {
@@ -261,7 +277,10 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/angular-app-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**", "!apps/angular-app-e2e/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/angular-app-e2e/**"
+            ]
           }
         }
       }
@@ -286,7 +305,10 @@
               "libs/react-integration/tsconfig.lib.json",
               "libs/react-integration/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/react-integration/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/react-integration/**"
+            ]
           }
         },
         "test": {
@@ -314,8 +336,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/react-ng-wrapper/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/react-ng-wrapper/**"]
+            "tsConfig": [
+              "libs/react-ng-wrapper/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/react-ng-wrapper/**"
+            ]
           }
         }
       }
@@ -340,7 +367,10 @@
               "libs/react-wrappers/tsconfig.lib.json",
               "libs/react-wrappers/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/react-wrappers/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/react-wrappers/**"
+            ]
           }
         },
         "test": {
@@ -368,7 +398,9 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/angular-component-library/tsconfig.lib.json"],
+            "tsConfig": [
+              "libs/angular-component-library/tsconfig.lib.json"
+            ],
             "exclude": [
               "**/node_modules/**",
               "!libs/angular-component-library/**"
