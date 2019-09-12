@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fcom-root',
+  selector: 'hybrid-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
