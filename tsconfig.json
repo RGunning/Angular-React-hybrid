@@ -7,7 +7,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "es2015",
     "module": "es2015",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
@@ -15,9 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hybrid/test-react": ["dist/libs/test-react"]
+      "@hybrid/test-react": ["dist/libs/test-react"],
+      "@hybrid/angular-components": ["dist/libs/angular-components"],
+      "@hybrid/react-integration": ["dist/libs/react-integration"]
     },
     "rootDir": "."
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   },
   "exclude": ["node_modules", "tmp"]
 }

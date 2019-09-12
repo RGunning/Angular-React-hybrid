@@ -39,6 +39,7 @@
     "@angular/router": "8.2.5",
     "core-js": "2.6.9",
     "rxjs": "6.5.3",
+    "tslib": "^1.9.0",
     "zone.js": "0.10.2",
     "react": "16.8.6",
     "react-dom": "16.8.6",

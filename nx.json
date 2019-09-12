@@ -22,6 +22,12 @@
     },
     "angular-app-e2e": {
       "tags": []
+    },
+    "angular-components": {
+      "tags": []
+    },
+    "react-integration": {
+      "tags": []
     }
   }
 }
