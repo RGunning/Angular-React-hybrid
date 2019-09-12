@@ -11,11 +11,12 @@ import {
   ɵdetectChanges as detectChanges,
   ɵLifecycleHooksFeature as LifecycleHooksFeature
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'hello-world': any;
+      [key: string]: any;
     }
   }
 }
@@ -24,7 +25,7 @@ declare global {
 @Component({ selector: 'hello-world', template: 'Hello {{name}}!' })
 class HelloWorld implements OnInit {
   @Input() name = 'world';
-  @Output() stuff = new EventEmitter();
+  @Output() stuff = new EventEmitter<string>();
 
   ngOnInit() {
     setTimeout(() => {
@@ -38,11 +39,16 @@ class HelloWorld implements OnInit {
 
 export class ReactIntegration extends React.Component<any, any> {
   private childComponent;
+  private componentDef;
+  private _subscriptions: Subscription[] = [];
 
   constructor(props) {
     super(props);
+    this.componentDef = (HelloWorld as any).ngComponentDef
+    console.log(this.componentDef)
+
     this.state = {
-      name: 'project-react'
+      component: this.componentDef ? this.componentDef.selectors[0][0] : '',
     };
   }
 
@@ -51,21 +57,42 @@ export class ReactIntegration extends React.Component<any, any> {
     //
   }
 
+  componentWillUnmount() {
+    this._subscriptions.forEach(subscription => subscription.unsubscribe())
+  }
+
+
   // After the component did mount, we set the state each second.
   componentDidMount() {
 
-    // render component
+    // render component after selector is in DOM
     this.childComponent = renderComponent(HelloWorld, { hostFeatures: [LifecycleHooksFeature] });
 
+    this._subscriptions.push(
+      ...Object.keys(this.componentDef.outputs).map(
+        (output) => {
+          return this.childComponent[output].subscribe((e) => {
+            if (this.props[output] && typeof this.props[output] === "function") {
+              this.props[output](e)
+            }
+          })
+        }
+      )
+    )
+
     // listen to outputs
-    this.childComponent.stuff.subscribe((e) => { console.log(e) })
     this.updateComponent();
   }
 
   updateComponent() {
     if (this.childComponent) {
       // update inputs and detect changes
-      this.childComponent.name = this.state.name;
+      Object.keys(this.props).forEach(prop => {
+        if (this.childComponent[prop] && Object.keys(this.componentDef.inputs).includes(prop)) {
+          this.childComponent[prop] = this.props[prop]
+        }
+      })
+
       detectChanges(this.childComponent)
     }
   }
@@ -73,11 +100,10 @@ export class ReactIntegration extends React.Component<any, any> {
   // render will know everything!
   render() {
     this.updateComponent();
+    const CustomTag = `${this.state.component}`;
+
     return (
-      <div>
-        <h1>Welcome to react-integration component!</h1>
-        <hello-world name={this.state.name}></hello-world>
-      </div>
+      <CustomTag></CustomTag>
     )
   }
 }
