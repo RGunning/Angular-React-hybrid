@@ -23,13 +23,11 @@
     "angular-app-e2e": {
       "tags": []
     },
-    "react-integration": {
-      "tags": []
-    },
+
     "react-ng-wrapper": {
       "tags": []
     },
-    "react-material": {
+    "react-wrappers": {
       "tags": []
     },
     "angular-component-library": {

@@ -1,10 +1,8 @@
 import * as React from "react";
-import { Component } from "react";
-import { HelloWrapper } from '@hybrid/react-integration';
-import { ReactTimerComponent } from '@hybrid/react-material';
+import { ReactTimerComponent, ReactHelloComponent } from '@hybrid/react-wrappers';
 
 import "./app.scss";
-export class App extends Component {
+export class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -27,7 +25,7 @@ export class App extends Component {
     return (
       <div>
         <div style={{ textAlign: "center", fontSize: "xx-large" }}>
-          <HelloWrapper name={this.state.name} stuff={this.onStuff}></HelloWrapper>
+          <ReactHelloComponent name={this.state.name} stuff={this.onStuff}></ReactHelloComponent>
           <div>
             <ReactTimerComponent></ReactTimerComponent>
           </div>

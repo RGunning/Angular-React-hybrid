@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy, ɵdetectChanges as detectChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'hybrid-timer',
   template: `counter: {{counter}}`,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TimerComponent implements OnInit, OnDestroy {
 

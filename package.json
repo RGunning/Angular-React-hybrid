@@ -5,7 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:react": "yarn build:all && ng serve react-app",
+    "start:angular": "yarn build:all && ng serve angular-app",
     "build": "ng build",
+    "build:all": "ng build react-ng-wrapper && ng build angular-component-library && ng build react-wrappers",
     "test": "ng test",
     "lint": "./node_modules/.bin/nx workspace-lint && ng lint",
     "e2e": "ng e2e",
