@@ -266,40 +266,6 @@
         }
       }
     },
-    "angular-components": {
-      "projectType": "library",
-      "root": "libs/angular-components",
-      "sourceRoot": "libs/angular-components/src",
-      "prefix": "hybrid",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "libs/angular-components/tsconfig.lib.json",
-            "project": "libs/angular-components/ng-package.json"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/angular-components/tsconfig.lib.json",
-              "libs/angular-components/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/angular-components/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/angular-components/jest.config.js",
-            "tsConfig": "libs/angular-components/tsconfig.spec.json",
-            "setupFile": "libs/angular-components/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {}
-    },
     "react-integration": {
       "root": "libs/react-integration",
       "sourceRoot": "libs/react-integration/src",
@@ -328,6 +294,28 @@
           "options": {
             "jestConfig": "libs/react-integration/jest.config.js",
             "tsConfig": "libs/react-integration/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "react-ng-wrapper": {
+      "root": "libs/react-ng-wrapper",
+      "sourceRoot": "libs/react-ng-wrapper/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/react-ng-wrapper/tsconfig.lib.json",
+            "project": "libs/react-ng-wrapper/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs/react-ng-wrapper/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/react-ng-wrapper/**"]
           }
         }
       }

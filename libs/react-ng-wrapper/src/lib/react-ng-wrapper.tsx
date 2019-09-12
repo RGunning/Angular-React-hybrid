@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-export class ReactGenericWrapper<T> extends React.Component< any, {ngComponentName: string}> {
+export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: string}> {
   private _childComponent;
   private _componentDef;
   private _subscriptions: Subscription[] = [];

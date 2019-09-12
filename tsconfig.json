@@ -17,7 +17,8 @@
     "paths": {
       "@hybrid/test-react": ["dist/libs/test-react"],
       "@hybrid/angular-components": ["dist/libs/angular-components"],
-      "@hybrid/react-integration": ["dist/libs/react-integration"]
+      "@hybrid/react-integration": ["dist/libs/react-integration"],
+      "@hybrid/react-ng-wrapper": ["dist/libs/react-ng-wrapper"]
     },
     "rootDir": "."
   },

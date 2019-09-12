@@ -23,10 +23,10 @@
     "angular-app-e2e": {
       "tags": []
     },
-    "angular-components": {
+    "react-integration": {
       "tags": []
     },
-    "react-integration": {
+    "react-ng-wrapper": {
       "tags": []
     }
   }
