@@ -5,9 +5,7 @@ import { HelloJSX } from '@hybrid/react-component-library';
 
 @Component({
   selector: 'hybrid-hello-jsx',
-  template: `
-    <div></div>
-  `,
+  template: ``,
   styles: [``]
 })
 export class HelloJSXComponent implements AfterViewInit {
