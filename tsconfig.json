@@ -15,11 +15,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@hybrid/test-react": ["dist/libs/test-react"],
       "@hybrid/react-ng-wrapper": ["dist/libs/react-ng-wrapper"],
       "@hybrid/react-wrappers": ["dist/libs/react-wrappers"],
+      "@hybrid/angular-wrappers": ["dist/libs/angular-wrappers"],
       "@hybrid/angular-component-library": [
         "dist/libs/angular-component-library/"
+      ],
+      "@hybrid/react-component-library": [
+        "dist/libs/react-component-library/"
       ]
     },
     "rootDir": "."

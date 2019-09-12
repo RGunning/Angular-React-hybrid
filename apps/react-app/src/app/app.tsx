@@ -1,8 +1,7 @@
-import * as React from "react";
-import {Component}from "react";
+import React from "react";
 import { ReactTimerComponent, ReactHelloComponent } from '@hybrid/react-wrappers';
-
-export class App extends Component {
+import { HelloJSX } from '@hybrid/react-component-library'
+export class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +28,8 @@ export class App extends Component {
           <div>
             <ReactTimerComponent></ReactTimerComponent>
           </div>
+
+          <HelloJSX></HelloJSX>
         </div>
       </div>
     );

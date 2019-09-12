@@ -1,16 +1,16 @@
-import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ReactLabel } from './react.component';
+import { HelloJSX } from '@hybrid/react-component-library';
 
 @Component({
-  selector: 'react-integration-test',
+  selector: 'hybrid-hello-jsx',
   template: `
     <div></div>
   `,
   styles: [``]
 })
-export class AngularReactLabel implements AfterViewInit {
+export class HelloJSXComponent implements AfterViewInit {
 
   constructor(private hostRef: ElementRef) { }
 
@@ -18,7 +18,7 @@ export class AngularReactLabel implements AfterViewInit {
     const hostElement = this.hostRef.nativeElement;
     const LabelToShow = () => (
       // Actual use here, might include data-binding in a real world scenario
-      <ReactLabel></ReactLabel>
+      <HelloJSX></HelloJSX>
     );
     ReactDOM.render(<LabelToShow />, hostElement);
   }

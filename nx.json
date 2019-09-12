@@ -11,18 +11,10 @@
     "react-app": {
       "tags": []
     },
-    "react-app-e2e": {
-      "tags": []
-    },
-    "test-react": {
-      "tags": []
-    },
     "angular-app": {
       "tags": []
     },
-    "angular-app-e2e": {
-      "tags": []
-    },
+
 
     "react-ng-wrapper": {
       "tags": []
@@ -31,6 +23,12 @@
       "tags": []
     },
     "angular-component-library": {
+      "tags": []
+    },
+    "angular-wrappers": {
+      "tags": []
+    },
+    "react-component-library": {
       "tags": []
     }
   }
