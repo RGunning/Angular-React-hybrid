@@ -16,9 +16,9 @@ declare global {
   }
 }
 
-export class ReactGenericWrapper<T> extends React.Component<any, any> {
-  private childComponent;
-  private componentDef;
+export class ReactGenericWrapper<T> extends React.Component< any, {ngComponentName: string}> {
+  private _childComponent;
+  private _componentDef;
   private _subscriptions: Subscription[] = [];
 
   constructor(props, private componentFactory: componentType<T>) {
@@ -26,10 +26,10 @@ export class ReactGenericWrapper<T> extends React.Component<any, any> {
     if(!componentFactory.hasOwnProperty('ngComponentDef')){
       throw new Error('A component with a ngComponentDef is required');
     }
-    this.componentDef = componentFactory.ngComponentDef;
+    this._componentDef = componentFactory.ngComponentDef;
 
     this.state = {
-      component: this.componentDef ? this.componentDef.selectors[0][0] : '',
+      ngComponentName: this._componentDef ? this._componentDef.selectors[0][0] : '',
     };
   }
 
@@ -37,17 +37,15 @@ export class ReactGenericWrapper<T> extends React.Component<any, any> {
     this._subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 
-
   // After the component did mount, we set the state each second.
   componentDidMount() {
-
     // render component after selector is in DOM
-    this.childComponent = renderComponent(this.componentFactory, { hostFeatures: [LifecycleHooksFeature] });
+    this._childComponent = renderComponent(this.componentFactory, { hostFeatures: [LifecycleHooksFeature] });
 
     this._subscriptions.push(
-      ...Object.keys(this.componentDef.outputs).map(
+      ...Object.keys(this._componentDef.outputs).map(
         (output) => {
-          return this.childComponent[output].subscribe((e) => {
+          return this._childComponent[output].subscribe((e) => {
             if (this.props[output] && typeof this.props[output] === "function") {
               this.props[output](e)
             }
@@ -61,27 +59,25 @@ export class ReactGenericWrapper<T> extends React.Component<any, any> {
   }
 
   updateComponent() {
-    if (this.childComponent) {
+    if (this._childComponent) {
       // update inputs and detect changes
       Object.keys(this.props).forEach(prop => {
-        if (this.childComponent[prop] && Object.keys(this.componentDef.inputs).includes(prop)) {
-          this.childComponent[prop] = this.props[prop]
+        if (this._childComponent[prop] && Object.keys(this._componentDef.inputs).includes(prop)) {
+          this._childComponent[prop] = this.props[prop]
         }
       })
 
-      detectChanges(this.childComponent)
+      detectChanges(this._childComponent)
     }
   }
 
   // render will know everything!
   render() {
     this.updateComponent();
-    const CustomTag = `${this.state.component}`;
+    const CustomTag = `${this.state.ngComponentName}`;
 
     return (
       <CustomTag></CustomTag>
     )
   }
 }
-
-
