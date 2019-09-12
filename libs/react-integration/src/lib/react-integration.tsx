@@ -1,6 +1,16 @@
 import React from 'react';
 
-import { Input, Output, EventEmitter, OnInit, Component, ɵrenderComponent as renderComponent, ɵmarkDirty as markDirty, ɵdetectChanges as detectChanges , ɵLifecycleHooksFeature as LifecycleHooksFeature} from '@angular/core';
+import {
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  Component,
+  ɵrenderComponent as renderComponent,
+  ɵmarkDirty as markDirty,
+  ɵdetectChanges as detectChanges,
+  ɵLifecycleHooksFeature as LifecycleHooksFeature
+} from '@angular/core';
 
 declare global {
   namespace JSX {
@@ -45,7 +55,7 @@ export class ReactIntegration extends React.Component<any, any> {
   componentDidMount() {
 
     // render component
-    this.childComponent = renderComponent(HelloWorld,{hostFeatures: [LifecycleHooksFeature]});
+    this.childComponent = renderComponent(HelloWorld, { hostFeatures: [LifecycleHooksFeature] });
 
     // listen to outputs
     this.childComponent.stuff.subscribe((e) => { console.log(e) })
