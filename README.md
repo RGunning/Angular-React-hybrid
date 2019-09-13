@@ -1,44 +1,23 @@
+# Angular React hybrid aplications
+
 Proof of Concept Angular-React Hybrid project based on ng-packagr example application https://github.com/ng-packagr/ng-packagr/tree/master/integration
 
+This project has 2 component libraries, 1 written in react and one in Angular. Using the `react-wrappers` library, we then convert the angular components into react compatible components. Likewise using the `angular-wrappers` library we convert the react components for use in angular applications.
 
-# TestWorkspace
+Three demo applications are included in this repository
+
+  - `react-app` - is a react application which imports both the `react-component-library` and the `angular-component-library` (via the `react-wrappers` and `react-ng-wrapper` libraries).
+  - `angular-app` - imports the `react-component-library` (via the `angular-wrappers` library)
+  - `angular-ivy-app` - imports the `angular-component-library` to show they can still be used within angular.
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Build
 
-🔎 **Nx is a set of Angular CLI power-ups for modern development.**
-
-## Quick Start & Documentation
-
-[30-minute video showing all Nx features](https://nx.dev/getting-started/what-is-nx)
-
-[Interactive tutorial](https://nx.dev/tutorial/01-create-application)
-
-## Generate your first application
-
-Run `ng g app myapp` to generate an application. When using Nx, you can create multiple applications and libraries in the same CLI workspace.
+Run `yarn build:all` to build all the libraries.
 
 ## Development server
 
-Run `ng serve myapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn start [app]` (where app is one of `react-app`, `angular-app` or `angular-ivy-app`).
 
-## Code scaffolding
-
-Run `ng generate component component-name --project=myapp` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build myapp` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Jest](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Cypress](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Navigate to `http://localhost:4200/`.
