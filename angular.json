@@ -139,6 +139,75 @@
         }
       }
     },
+    "angular-ivy-app": {
+      "root": "apps/angular-ivy-app/",
+      "sourceRoot": "apps/angular-ivy-app/src",
+      "projectType": "application",
+      "prefix": "hybrid",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-ivy-app",
+            "index": "apps/angular-ivy-app/src/index.html",
+            "main": "apps/angular-ivy-app/src/main.ts",
+            "polyfills": "apps/angular-ivy-app/src/polyfills.ts",
+            "tsConfig": "apps/angular-ivy-app/tsconfig.app.json",
+            "assets": [
+              "apps/angular-ivy-app/src/favicon.ico",
+              "apps/angular-ivy-app/src/assets"
+            ],
+            "styles": [
+              "apps/angular-ivy-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-ivy-app/src/environments/environment.ts",
+                  "with": "apps/angular-ivy-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-ivy-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-ivy-app:build:production"
+            }
+          }
+        }
+      }
+    },
     "angular-wrappers": {
       "root": "libs/angular-wrappers",
       "sourceRoot": "libs/angular-wrappers/src",

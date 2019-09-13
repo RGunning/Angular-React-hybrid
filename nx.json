@@ -14,8 +14,9 @@
     "angular-app": {
       "tags": []
     },
-
-
+    "angular-ivy-app": {
+      "tags": []
+    },
     "react-ng-wrapper": {
       "tags": []
     },
