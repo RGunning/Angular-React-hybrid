@@ -6,9 +6,9 @@ This project has 2 component libraries, 1 written in react and one in Angular. U
 
 Three demo applications are included in this repository
 
-  - `react-app` - is a react application which imports both the `react-component-library` and the `angular-component-library` (via the `react-wrappers` and `react-ng-wrapper` libraries).
-  - `angular-app` - imports the `react-component-library` (via the `angular-wrappers` library)
-  - `angular-ivy-app` - imports the `angular-component-library` to show they can still be used within angular.
+- `react-app` - is a react application which imports both the `react-component-library` and the `angular-component-library` (via the `react-wrappers` and `react-ng-wrapper` libraries).
+- `angular-app` - imports the `react-component-library` (via the `angular-wrappers` library)
+- `angular-ivy-app` - imports the `angular-component-library` to show they can still be used within angular.
 
 This project was generated using [Nx](https://nx.dev).
 
