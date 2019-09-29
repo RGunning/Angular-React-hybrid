@@ -58,6 +58,10 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
     this.updateComponent();
   }
 
+  componentDidUpdate(){
+    this.updateComponent();
+  }
+
   updateComponent() {
     if (this._childComponent) {
       // update inputs and detect changes
@@ -73,7 +77,6 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
 
   // render will know everything!
   render() {
-    this.updateComponent();
     const CustomTag = `${this.state.ngComponentName}`;
 
     return (

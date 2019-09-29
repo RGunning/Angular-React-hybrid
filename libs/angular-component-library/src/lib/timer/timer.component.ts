@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, ɵmarkDirty as markDirty, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ɵmarkDirty as markDirty,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 
 @Component({
