@@ -42,6 +42,7 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
     // render component after selector is in DOM
     this._childComponent = renderComponent(this.componentFactory, { hostFeatures: [LifecycleHooksFeature] });
 
+    // listen to outputs
     this._subscriptions.push(
       ...Object.keys(this._componentDef.outputs).map(
         (output) => {
@@ -54,7 +55,7 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
       )
     )
 
-    // listen to outputs
+    // bind inputs
     this.updateComponent();
   }
 
