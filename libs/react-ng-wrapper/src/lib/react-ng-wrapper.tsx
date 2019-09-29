@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   ɵrenderComponent as renderComponent,
-  ɵdetectChanges as detectChanges,
+  ɵmarkDirty as markDirty,
   ɵLifecycleHooksFeature as LifecycleHooksFeature,
   ɵComponentType as componentType
 } from '@angular/core';
@@ -71,7 +71,7 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
         }
       })
 
-      detectChanges(this._childComponent)
+      markDirty(this._childComponent);
     }
   }
 
