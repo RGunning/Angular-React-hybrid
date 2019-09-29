@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ɵdetectChanges as detectChanges, ɵmarkDirty as markDirty, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ɵmarkDirty as markDirty, ChangeDetectionStrategy } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class TimerComponent implements OnInit, OnDestroy {
     this.counterSubscription = timer(0, 1000)
       .subscribe(c => {
         this.counter = c;
-        detectChanges(this);
+        markDirty(this);
       });
   }
 
