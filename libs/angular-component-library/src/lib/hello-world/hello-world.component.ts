@@ -4,10 +4,11 @@ import {
   EventEmitter,
   OnInit,
   Component,
+  OnChanges,
 } from '@angular/core';
 
 @Component({ selector: 'hybrid-hello-world', template: 'Hello {{name}}!' })
-export class HelloWorldComponent implements OnInit {
+export class HelloWorldComponent implements OnInit, OnChanges {
   @Input() name = 'world';
   @Output() stuff = new EventEmitter<string>();
 
@@ -15,5 +16,9 @@ export class HelloWorldComponent implements OnInit {
     setTimeout(() => {
       this.stuff.next('loaded');
     }, 1000);
+  }
+
+  ngOnChanges(changes){
+    console.log(changes)
   }
 }

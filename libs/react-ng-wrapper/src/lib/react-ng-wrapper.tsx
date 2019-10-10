@@ -4,7 +4,9 @@ import {
   ɵrenderComponent as renderComponent,
   ɵmarkDirty as markDirty,
   ɵLifecycleHooksFeature as LifecycleHooksFeature,
-  ɵComponentType as componentType
+  ɵComponentType as componentType,
+  SimpleChange,
+  SimpleChanges
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -16,20 +18,21 @@ declare global {
   }
 }
 
-export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: string}> {
+export class ReactNgWrapper<T> extends React.Component<any, { ngComponentName: string, propChanged: Set<string> }> {
   private _childComponent;
   private _componentDef;
   private _subscriptions: Subscription[] = [];
 
   constructor(props, private componentFactory: componentType<T>) {
     super(props);
-    if(!componentFactory.hasOwnProperty('ngComponentDef')){
+    if (!componentFactory.hasOwnProperty('ngComponentDef')) {
       throw new Error('A component with a ngComponentDef is required');
     }
     this._componentDef = componentFactory.ngComponentDef;
 
     this.state = {
       ngComponentName: this._componentDef ? this._componentDef.selectors[0][0] : '',
+      propChanged: new Set<string>()
     };
   }
 
@@ -59,18 +62,28 @@ export class ReactNgWrapper<T> extends React.Component< any, {ngComponentName: s
     this.updateComponent();
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     this.updateComponent();
   }
 
   updateComponent() {
     if (this._childComponent) {
+      const changes: SimpleChanges = {}
       // update inputs and detect changes
       Object.keys(this.props).forEach(prop => {
-        if (this._childComponent[prop] && Object.keys(this._componentDef.inputs).includes(prop)) {
+        if (this._childComponent[prop] &&
+          Object.keys(this._componentDef.inputs).includes(prop) &&
+          this._childComponent[prop] !== this.props[prop]) {
+
+          changes[prop] = new SimpleChange(this._childComponent[prop], this.props[prop], !this.state.propChanged.has(prop))
+          this.state.propChanged.add(prop);
           this._childComponent[prop] = this.props[prop]
         }
       })
+
+      if (typeof this._childComponent.ngOnChanges === "function") {
+        this._childComponent.ngOnChanges(changes);
+      }
 
       markDirty(this._childComponent);
     }
