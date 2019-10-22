@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-export class ReactNgWrapper<T, U = any> extends React.Component<U, { ngComponentName: string, propChanged: Set<string> }> {
+export class ReactNgWrapper<T, U = any> extends React.Component<U, { selector: string, propChanged: Set<string> }> {
   private _childComponent: T & Partial<OnChanges>;
   private _componentDef: ComponentDef<T>;
   private _subscriptions: Subscription[] = [];
@@ -36,7 +36,7 @@ export class ReactNgWrapper<T, U = any> extends React.Component<U, { ngComponent
     }
 
     this.state = {
-      ngComponentName: this._componentDef ? this._componentDef.selectors[0][0] as string: '',
+      selector: this._componentDef ? this._componentDef.selectors[0][0] as string: '',
       propChanged: new Set<string>()
     };
   }
@@ -96,7 +96,7 @@ export class ReactNgWrapper<T, U = any> extends React.Component<U, { ngComponent
 
   // render will know everything!
   render() {
-    const CustomTag = `${this.state.ngComponentName}`;
+    const CustomTag = `${this.state.selector}`;
 
     return (
       <CustomTag></CustomTag>
