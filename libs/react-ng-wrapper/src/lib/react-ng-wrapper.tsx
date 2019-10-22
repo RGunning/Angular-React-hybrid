@@ -36,7 +36,7 @@ export class ReactNgWrapper<T, U = any> extends React.Component<U, { selector: s
     }
 
     this.state = {
-      selector: this._componentDef ? this._componentDef.selectors[0][0] as string : '',
+      selector: this._componentDef.selectors[0][0] as string,
       propChanged: new Set<string>()
     };
   }
