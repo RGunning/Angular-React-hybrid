@@ -5,8 +5,11 @@ import {
   ɵmarkDirty as markDirty,
   ɵLifecycleHooksFeature as LifecycleHooksFeature,
   ɵComponentType as componentType,
+  ɵComponentDef as ComponentDef,
+  ɵNG_COMPONENT_DEF as NG_COMPONENT_DEF,
   SimpleChange,
-  SimpleChanges
+  SimpleChanges,
+  OnChanges
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -18,20 +21,22 @@ declare global {
   }
 }
 
-export class ReactNgWrapper<T> extends React.Component<any, { ngComponentName: string, propChanged: Set<string> }> {
-  private _childComponent;
-  private _componentDef;
+export class ReactNgWrapper<T, U = any> extends React.Component<U, { ngComponentName: string, propChanged: Set<string> }> {
+  private _childComponent: T & Partial<OnChanges>;
+  private _componentDef: ComponentDef<T>;
   private _subscriptions: Subscription[] = [];
 
   constructor(props, private componentFactory: componentType<T>) {
     super(props);
-    if (!componentFactory.hasOwnProperty('ngComponentDef')) {
+
+   this._componentDef = componentFactory[NG_COMPONENT_DEF] || null;
+
+    if (!this._componentDef) {
       throw new Error('A component with a ngComponentDef is required');
     }
-    this._componentDef = componentFactory.ngComponentDef;
 
     this.state = {
-      ngComponentName: this._componentDef ? this._componentDef.selectors[0][0] : '',
+      ngComponentName: this._componentDef ? this._componentDef.selectors[0][0] as string: '',
       propChanged: new Set<string>()
     };
   }
