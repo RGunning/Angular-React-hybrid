@@ -32,7 +32,7 @@ export class ReactNgWrapper<T, U = any> extends React.Component<U, { selector: s
     this._componentDef = componentFactory[NG_COMPONENT_DEF] || null;
 
     if (!this._componentDef) {
-      throw new Error('A component with a ngComponentDef is required');
+      throw new Error(`A component with a ${NG_COMPONENT_DEF} is required`);
     }
 
     this.state = {
