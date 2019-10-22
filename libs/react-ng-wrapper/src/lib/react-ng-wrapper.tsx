@@ -26,17 +26,17 @@ export class ReactNgWrapper<T, U = any> extends React.Component<U, { selector: s
   private _componentDef: ComponentDef<T>;
   private _subscriptions: Subscription[] = [];
 
-  constructor(props, private componentFactory: componentType<T>) {
+  constructor(props: Readonly<U>, private componentFactory: componentType<T>) {
     super(props);
 
-   this._componentDef = componentFactory[NG_COMPONENT_DEF] || null;
+    this._componentDef = componentFactory[NG_COMPONENT_DEF] || null;
 
     if (!this._componentDef) {
       throw new Error('A component with a ngComponentDef is required');
     }
 
     this.state = {
-      selector: this._componentDef ? this._componentDef.selectors[0][0] as string: '',
+      selector: this._componentDef ? this._componentDef.selectors[0][0] as string : '',
       propChanged: new Set<string>()
     };
   }
