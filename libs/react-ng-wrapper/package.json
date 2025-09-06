@@ -2,7 +2,7 @@
   "name": "@hybrid/react-ng-wrapper",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^8.2.5",
-    "@angular/core": "^8.2.5"
+    "@angular/common": "^8.2.5 || ^20.0.0",
+    "@angular/core": "^8.2.5 || ^20.0.0"
   }
 }
