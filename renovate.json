@@ -1,14 +1,1 @@
-{
-  "extends": [
-    "config:base",
-    "group:all",
-    ":automergeMinor",
-    ":maintainLockFilesMonthly"
-  ],
-  "lockFileMaintenance": {
-    "extends": [
-      "group:all"
-    ],
-    "commitMessageAction": "Update"
-  }
-}
+{ "enabled": false }
